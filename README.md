@@ -40,5 +40,5 @@ It should look like this
 
 ![aws-exports.ts example](/readme_img/configExample.PNG?raw=true)
 
-<img src="readme_img/configExample.PNG" width="100"/>
+<img src="readme_img/configExample.PNG" width="300px"/>
 
