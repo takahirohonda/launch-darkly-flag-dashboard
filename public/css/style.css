@@ -1,0 +1,341 @@
+body {
+    margin: 0 0px;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background-color: #181f2f;
+}
+
+.dashbord-header {
+    background-color: #2b3b54;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.header-img {
+    width: 245px;
+    height: 85px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn.btn-default {
+    margin-right: 60px;
+    background-color: #2b3b54;
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    width: 150px;
+}
+
+.btn.btn-default:hover,
+.btn.btn-default:focus,
+.btn.btn-default:hover {
+    margin-right: 60px;
+    background-color: whitesmoke;
+    color: #2b3b54;
+    border: 1px solid whitesmoke;
+    box-shadow: 0 2px 2px #fefefe, 0 2px 2px #fefefe;
+}
+
+.btn.btn-custom {
+    margin-right: 60px;
+    background-color: #0ca680;
+    color: whitesmoke;
+    border: 1px solid #087f61;
+    width: 100%;
+}
+
+.btn.btn-custom:hover,
+.btn.btn-custom:focus,
+.btn.btn-custom:hover,
+.btn.btn-custom:active {
+    margin-right: 60px;
+    background-color: whitesmoke;
+    color: #087f61;
+    border: 2px solid #087f61;
+}
+
+.custom-select {
+    background-color: #181f2f;
+    color: #fefefe;
+}
+
+.header-title {
+    color: #fefefe;
+    text-align: left;
+}
+
+.sub-header-title {
+    color: #d2e6ef;
+}
+
+.summary-container {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    display: flex;
+}
+
+.score-card-container {
+    width: 40%;
+    height: 220px;
+    border: solid 1px #62686f;
+    box-shadow: 2px 3px #62686f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 1px 2px #62686f;
+    background-color: #212529;
+}
+
+.score-card {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.total-flag-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.count-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flag-count {
+    color: #d2e6ef;
+    font-size: 30px;
+}
+
+.flag-count-sub {
+    color: #d2e6ef;
+}
+
+.pie-chart-container {
+    margin-right: 40px;
+}
+
+.pie-chart {
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+    background-color: #2ecc71;
+    background-image: linear-gradient(to right, transparent 50%, #22a7f0 0)
+}
+
+
+/* .pie-chart::before {
+content: "";
+display: block;
+margin-left: 50%;
+height: 100%;
+border-radius: 0 100% 100% 0 / 50%;
+background-color: inherit;
+transform-origin: left;
+transform: rotate(18deg);
+} */
+
+.pie-chart::after {
+    content: "Active";
+    display: block;
+    position: relative;
+    color: white;
+    top: -40px;
+    left: 53px;
+}
+
+.bar-chart-container {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 20px;
+    border: solid 1px #62686f;
+    box-shadow: 1px 2px #62686f;
+    background-color: #212529;
+}
+
+.bar-chart-area {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 8%;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.bar-chart {
+    height: 90%;
+}
+
+.bar-chart:hover {
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.bar-chart-title {
+    height: 10%;
+    color: #d2e6ef;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.bar-count {
+    color: #d2e6ef;
+    text-align: center;
+    margin-top: 5px;
+}
+
+#bar-5 {
+    background-color: #33FFBD;
+}
+
+#bar-4 {
+    background-color: #33FF57;
+}
+
+#bar-3 {
+    background-color: #cf68ff;
+}
+
+#bar-2 {
+    background-color: #DBFF33;
+}
+
+#bar-1 {
+    background-color: #FFBD33;
+}
+
+#bar-0 {
+    background-color: #FF5733;
+}
+
+
+/* Desktop Animation */
+
+@Keyframes grow {
+    0% {
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: bottom center;
+    }
+    100% {
+        opacity: 1;
+        transform: scaleY(1);
+        transform-origin: bottom center;
+    }
+}
+
+@Keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.grow {
+    animation-name: grow;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.appear {
+    animation-name: appear;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.animation-delay-0 {
+    animation-delay: .4s;
+}
+
+.animation-delay-1 {
+    animation-delay: .5s;
+}
+
+.animation-delay-2 {
+    animation-delay: .6s;
+}
+
+.animation-delay-3 {
+    animation-delay: .7s;
+}
+
+.animation-delay-4 {
+    animation-delay: .8s;
+}
+
+.animation-delay-5 {
+    animation-delay: .9s;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+
+/* React CSS Transition Group */
+
+.pieanimation-enter {
+    opacity: 0.01;
+}
+
+.pieanimation-enter.pieanimation-enter-active {
+    opacity: 1;
+    transition: opacity 1000ms ease-in;
+}
+
+.pieanimation-leave {
+    opacity: 0.01;
+}
+
+.pieanimation-leave.pieanimation-leave-active {
+    opacity: 1;
+    transition: opacity 1000ms ease-in;
+}
+
+
+/* 
+.pieanimation-appear {
+  opacity: 0.01;
+}
+.pieanimation-appear.pieanimation-appear-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+} */
+
+.example-appear {
+    opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+.example-enter {
+    opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+    opacity: 1;
+}
+
+.example-leave.example-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}
