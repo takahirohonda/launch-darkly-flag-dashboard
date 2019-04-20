@@ -5,8 +5,8 @@ interface BarGraphProps {
   barGraph: BarGraph[];
 }
 const BarGraph = ({ barGraph }: BarGraphProps) => {
-  var bars = barGraph.map((item: BarGraph, index: number) => {
-    var height = { height: `${item.height}%` };
+  const bars = barGraph.map((item: BarGraph, index: number) => {
+    const height = { height: `${item.height}%` };
     return (
       <div className="bar-chart-area" key={index}>
         <div className="bar-chart-title">{item.title}</div>

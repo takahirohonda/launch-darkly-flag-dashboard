@@ -1,16 +1,16 @@
 import { FeatureFlagData, BarGraph } from "../types";
 
 export const createBarGraphData = (data: FeatureFlagData[]): BarGraph[] => {
-  let array = [];
-  let totalFlags = data.length;
+  const array = [];
+  const totalFlags = data.length;
 
   array.push(aggregateOlderData(data, 6, "Older", totalFlags));
 
   for (let i = 4; i >= 0; i--) {
-    let targetYearMonthKey = getPastYearMonthKey(i);
-    let flagCount = data.filter(data => data.yearMonthKey == targetYearMonthKey)
+    const targetYearMonthKey = getPastYearMonthKey(i);
+    const flagCount = data.filter(data => data.yearMonthKey == targetYearMonthKey)
       .length;
-    let barGraph = {
+    const barGraph = {
       title: i == 0 ? "Current" : monthConverter(getPastMonth(i)),
       count: flagCount,
       height: 0
@@ -21,7 +21,7 @@ export const createBarGraphData = (data: FeatureFlagData[]): BarGraph[] => {
   const max = getMaxCount(array);
 
   return array.map(item => {
-    var height = Math.floor((item.count * 100) / max);
+    const height = Math.floor((item.count * 100) / max);
     return {
       title: item.title,
       count: item.count,
@@ -40,7 +40,7 @@ const aggregateOlderData = (
   title: string,
   totalFlags: number
 ): BarGraph => {
-  let flagCount = data.filter(
+  const flagCount = data.filter(
     data => data.yearMonthKey <= getPastYearMonthKey(olderThan)
   ).length;
   return {
@@ -50,14 +50,14 @@ const aggregateOlderData = (
   };
 };
 const getPastYearMonthKey = (monthAgo: number): string => {
-  let today = new Date();
-  let past = new Date(today.setMonth(today.getMonth() - monthAgo));
+  const today = new Date();
+  const past = new Date(today.setMonth(today.getMonth() - monthAgo));
   return past.getFullYear().toString() + past.getMonth().toString();
 };
 
 const getPastMonth = (monthAgo: number): number => {
-  let today = new Date();
-  let past = new Date(today.setMonth(today.getMonth() - monthAgo));
+  const today = new Date();
+  const past = new Date(today.setMonth(today.getMonth() - monthAgo));
   return past.getMonth();
 };
 

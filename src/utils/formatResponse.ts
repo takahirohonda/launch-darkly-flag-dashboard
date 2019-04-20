@@ -3,9 +3,9 @@ import { FeatureFlagData } from "../types";
 import { convertEpocToLocal, getYearMonthKey } from "./timestampFormatter";
 
 export const formatResponse = (data: Items): FeatureFlagData[] => {
-  let array = data.items.map(item => {
-    let flagName;
-    let flagType;
+  const array = data.items.map(item => {
+    const flagName = item.key || 'NA';
+    const flagType = item.kind || 'NA';
     let on;
     let archived;
     let tags;
@@ -15,16 +15,6 @@ export const formatResponse = (data: Items): FeatureFlagData[] => {
     let lastModified;
     let yearMonthKey;
 
-    try {
-      flagName = item.key;
-    } catch {
-      flagName = "NA";
-    }
-    try {
-      flagType = item.kind;
-    } catch {
-      flagType = "NA";
-    }
     try {
       on = item.environments.production.on;
     } catch {

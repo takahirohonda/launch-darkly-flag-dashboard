@@ -6,7 +6,7 @@ interface TableProps {
 }
 
 const Table = ({ filteredList }: TableProps) => {
-  let tableBody = filteredList.map((item: FeatureFlagData, index: number) => {
+  const tableBody = filteredList.map((item: FeatureFlagData, index: number) => {
     let pretty;
     try {
       pretty = JSON.stringify(JSON.parse(item.customProperties), null, 2);

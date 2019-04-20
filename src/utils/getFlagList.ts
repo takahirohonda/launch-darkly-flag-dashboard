@@ -15,16 +15,14 @@ const params = {
 };
 
 export const getFlagList = () => {
-  return new Promise((resolve, reject) => {
-    axios(params)
-      .then(res => {
-        if (res.status == 200 && res.data != null) {
-          resolve(res.data);
-        }
-        resolve(null);
-      })
-      .catch(err => {
-        reject(err);
-      });
-  });
+  return axios(params)
+    .then(res => {
+      if (res.status == 200 && res.data != null) {
+        return res.data;
+      }
+      return null;
+    })
+    .catch(err => {
+      return err;
+    });
 };

@@ -6,7 +6,7 @@ interface UserSelectionProps {
 }
 
 // NOTE: the component is defined as below:
-// interface Component<P = {}, S = {}> extends ComponentLifecycle<P, S> { }
+// Interface Component<P = {}, S = {}> extends ComponentLifecycle<P, S> { }
 // Therefore, if we don't put { value: string }, we will get error: Property 'value' does not exist on type 'Readonly<{}>'
 
 class UserSelection extends React.Component<

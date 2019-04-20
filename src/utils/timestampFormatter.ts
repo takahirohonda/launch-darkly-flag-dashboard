@@ -1,7 +1,7 @@
 export const convertEpocToLocal = (epoch: number) => {
-  let date = new Date(epoch);
+  const date = new Date(epoch);
   // these get functions will convert date to local time by default
-  var timestampString =
+  const timestampString =
     date.getFullYear() +
     "-" +
     formatTimestampElement(date.getMonth() + 1) +
@@ -23,6 +23,6 @@ const formatTimestampElement = (number: number) => {
 };
 
 export const getYearMonthKey = (epoch: number) => {
-  let date = new Date(epoch);
+  const date = new Date(epoch);
   return date.getFullYear().toString() + date.getMonth().toString();
 };

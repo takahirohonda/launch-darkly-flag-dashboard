@@ -38,7 +38,12 @@ export default awsmobile;
 ```
 It should look like this
 
-![aws-exports.ts example](/readme_img/configExample.PNG?raw=true)
+## Run & Build
 
-<img src="readme_img/configExample.PNG" width="430px"/>
+Once setting up steps are done, you can run or build the app!
+
+```bash
+npm start
+npm run build
+```
 

@@ -1,10 +1,10 @@
 import { FeatureFlagData, Summary } from "../types";
 
 export const createSummaryData = (data: FeatureFlagData[]): Summary => {
-  let totalFlag = data.length;
-  let active = data.filter(data => data.on).length;
-  let inactive = data.filter(data => !data.on).length;
-  let activePercentage = Math.floor((active * 100) / totalFlag);
+  const totalFlag = data.length;
+  const active = data.filter(data => data.on).length;
+  const inactive = data.filter(data => !data.on).length;
+  const activePercentage = Math.floor((active * 100) / totalFlag);
 
   return {
     totalFlag: totalFlag,

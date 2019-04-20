@@ -1,11 +1,11 @@
-import { JSDOM } from 'jsdom'
+import { JSDOM } from 'jsdom';
 
 interface Global extends NodeJS.Global {
-  window: Window,
-  document: Document,
+  window: Window;
+  document: Document;
   navigator: {
     userAgent: string
-  }
+  };
 }
 
 const globalNode: Global = {
@@ -15,7 +15,7 @@ const globalNode: Global = {
     userAgent: 'node.js',
   },
   ...global
-}
+};
 
 // Force the test environment
 process.env.NODE_ENV = 'test';
@@ -29,7 +29,7 @@ if (!globalNode.window && !globalNode.document) {
     pretendToBeVisual: false,
     userAgent: 'mocha',
   });
-  
+
   // Configure global variables which like to be used in testing
   globalNode.window = window;
   globalNode.document = window.document;

@@ -18,7 +18,7 @@ const ScoreCard = ({ summary }: SummaryProps) => {
         border-radius: 0 100% 100% 0 / 50%;
         background-color: inherit;
         transform-origin: left;
-        transform: rotate(${summary.activePercentage}deg); 
+        transform: rotate(${summary.activePercentage}deg);
       }`}
       </style>
 

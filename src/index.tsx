@@ -3,6 +3,7 @@ import * as ReactDOM from "react-dom";
 import "../public/css/bootstrap.css";
 import "../public/css/style.css";
 import AppWithAuth from "./AppWithAuth";
+import App from "./App";
 import { Provider } from "react-redux";
 import { createStore, compose, applyMiddleware } from "redux";
 import reducer from "./reducers";
@@ -27,3 +28,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+
+

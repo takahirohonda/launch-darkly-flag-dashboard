@@ -13,7 +13,7 @@ export const flagList = (state: FeatureFlagData[] = initialState.initialData.fla
     switch(action.type) {
       case C.LOAD_DATA:
         return action.payload;
-    };
+    }
     return state;
 };
 
@@ -23,7 +23,7 @@ export const isFetching = (state: boolean = initialState.initialData.isFetching,
             return true;
         case C.FETCHINT_DATA_SUCCESS:
             return false;
-    };
+    }
     return state;
 }
 ;
@@ -31,31 +31,32 @@ export const isError = (state: boolean = initialState.initialData.isError, actio
     switch(action.type) {
         case C.RECIEVE_ERROR:
             return true;
-    };
+    }
     return state;
 };
 
 export const userList = (state: string[] = initialState.userList, action: AppAction): string[] => {
   switch(action.type) {
     case C.GET_USER_LIST:
-      const allUsers = action.payload.map(item => item.createdBy).sort();  
-      return [ ...Array.from(new Set<string>(allUsers))]; 
+      const allUsers = action.payload.map(item => item.createdBy).sort();
+      return [ ...Array.from(new Set<string>(allUsers))];
     }
     return state;
-}
+};
 
-export const filteredList = (state: FeatureFlagData[] = initialState.filteredList, action: AppAction): FeatureFlagData[] => {
+export const filteredList = (state: FeatureFlagData[] = initialState.filteredList, action: AppAction)
+: FeatureFlagData[] => {
   switch(action.type) {
     case C.LOAD_ALL_USER_LIST:
       return action.payload;
     case C.LOAD_FILTERED_USER_LIST:
       if(action.payload.user == 'default') {
-        return action.payload.data
+        return action.payload.data;
       }
-      const list = action.payload.data.filter(x => x.createdBy == action.payload.user)
+      const list = action.payload.data.filter(x => x.createdBy == action.payload.user);
       return list;
   }
-  return state
+  return state;
 };
 
 export const summary = (state: Summary = initialState.summary, action: AppAction): Summary => {
@@ -80,7 +81,7 @@ export const barGraph = (state: BarGraph[] = initialState.barGraph, action: AppA
     case C.GET_FILTERED_USER_BAR_GRAPH:
      if(action.payload.user == 'default') {
       return createBarGraphData(action.payload.data);
-     } 
+     }
     return createBarGraphData(action.payload.data.filter(x => x.createdBy == action.payload.user));
   }
   return state;
@@ -95,8 +96,7 @@ export default combineReducers({
     userList,
     filteredList,
     summary,
-    barGraph	
+    barGraph
 });
 
 
-	

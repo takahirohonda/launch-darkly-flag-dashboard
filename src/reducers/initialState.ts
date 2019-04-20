@@ -15,4 +15,4 @@ export const initialState: StoreState = {
     activePercentage: null
   },
   barGraph: []
-}
+};

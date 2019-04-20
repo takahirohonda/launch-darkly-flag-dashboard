@@ -1,0 +1,8 @@
+{
+  "rules": {
+    "no-trailing-whitespace": [true, "always"],
+    "prefer-const": [true, {"destructuring": "any"}],
+    "semicolon": [true, "always"],
+    "space-before-function-paren": [true, "never"]
+  }
+}
