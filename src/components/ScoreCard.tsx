@@ -1,15 +1,18 @@
 import * as React from "react";
 import { Summary } from "../types";
-import { CSSTransition } from "react-transition-group";
-
+import { CSSTransition } from 'react-transition-group';
+import "../../public/css/style.css";
 interface SummaryProps {
   summary: Summary;
+  animate: boolean;
+  fetchingSuccess: boolean;
 }
 
-const ScoreCard = ({ summary }: SummaryProps) => {
+const ScoreCard = ({ summary, animate, fetchingSuccess }: SummaryProps) => {
+  const duration = 1000;
   return (
     <React.Fragment>
-      <style>
+      <style jsx="true">
         {`.pie-chart::before {
         content: "";
         display: block;
@@ -21,32 +24,45 @@ const ScoreCard = ({ summary }: SummaryProps) => {
         transform: rotate(${summary.activePercentage}deg);
       }`}
       </style>
-
       <div className="score-card-container">
+      { fetchingSuccess && (
+      <React.Fragment>
+
         <div className="score-card">
           <div className="total-flag-container">
-            <div className="flag-count animation-delay-1 appear">
-              {summary.totalFlag}
-            </div>
+            <CSSTransition in={animate} timeout={duration} classNames="summary-count1">
+              <div className="flag-count">
+                {summary.totalFlag}
+              </div>
+            </CSSTransition>
             <div className="flag-count-sub">Total Flags</div>
           </div>
           <div className="count-details-container">
-            <div className="flag-count animation-delay-3 appear">
-              {summary.active}
-            </div>
+            <CSSTransition in={animate} timeout={duration} classNames="summary-count2">
+              <div className="flag-count">
+                {summary.active}
+              </div>
+            </CSSTransition>
             <div className="flag-count-sub">Active</div>
-            <div className="flag-count animation-delay-5 appear">
-              {summary.inactive}
-            </div>
+            <CSSTransition in={animate} timeout={duration} classNames="summary-count3">
+              <div className="flag-count">
+                {summary.inactive}
+              </div>
+            </CSSTransition>
             <div className="flag-count-sub">Inactive</div>
           </div>
         </div>
         <div className="pie-chart-container">
-          <div className="pie-chart animation-delay-6 appear" />
+          <CSSTransition in={animate} timeout={duration} classNames="pie-animation">
+            <div className="pie-chart" />
+          </CSSTransition>
         </div>
+      </React.Fragment>
+      )}
       </div>
     </React.Fragment>
   );
 };
+
 
 export default ScoreCard;

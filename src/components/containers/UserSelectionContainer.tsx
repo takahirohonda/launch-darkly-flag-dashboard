@@ -11,6 +11,9 @@ const mapStateToProps = ({ userList }: StoreState) => ({
 const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
   onChangeSelection: (user: string) => {
     dispatch(actions.filteredUserList(user));
+  },
+  setAnimationProp: (bool: boolean) => {
+    dispatch(actions.toggleAnimation(bool));
   }
 });
 

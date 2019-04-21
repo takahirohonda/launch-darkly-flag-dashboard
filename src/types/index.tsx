@@ -4,11 +4,13 @@ export interface StoreState {
   filteredList: FeatureFlagData[];
   summary: Summary;
   barGraph: BarGraph[];
+  animate: boolean;
 }
 
 export interface InitialData {
   flagList: FeatureFlagData[];
   isFetching: boolean;
+  fetchingSuccess: boolean;
   isError: boolean;
 }
 

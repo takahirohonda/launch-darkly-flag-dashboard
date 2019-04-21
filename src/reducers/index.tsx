@@ -3,8 +3,6 @@ import * as C from '../constants';
 import { combineReducers } from 'redux';
 import { initialState } from './initialState';
 import { FeatureFlagData, BarGraph, Summary } from '../types';
-
-import { formatResponse } from '../utils/formatResponse';
 import { createSummaryData } from '../utils/createSummaryData';
 import { createBarGraphData } from '../utils/createBarGraphData';
 
@@ -25,8 +23,16 @@ export const isFetching = (state: boolean = initialState.initialData.isFetching,
             return false;
     }
     return state;
-}
-;
+};
+
+export const fetchingSuccess = (state: boolean = initialState.initialData.fetchingSuccess, action: AppAction): boolean => {
+  switch(action.type) {
+    case C.FETCHINT_DATA_SUCCESS:
+      return true;
+  }
+  return state;
+};
+
 export const isError = (state: boolean = initialState.initialData.isError, action: AppAction): boolean => {
     switch(action.type) {
         case C.RECIEVE_ERROR:
@@ -87,16 +93,27 @@ export const barGraph = (state: BarGraph[] = initialState.barGraph, action: AppA
   return state;
 };
 
+export const animate = (state: boolean = initialState.animate, action: AppAction): boolean => {
+  switch(action.type) {
+    case C.TOGGLE_ANIMATION:
+      return action.payload;
+  }
+  return state;
+};
+
+
 export default combineReducers({
     initialData: combineReducers({
         flagList,
         isFetching,
+        fetchingSuccess,
         isError
     }),
     userList,
     filteredList,
     summary,
-    barGraph
+    barGraph,
+    animate
 });
 
 

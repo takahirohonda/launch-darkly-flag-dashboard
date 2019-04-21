@@ -1,14 +1,15 @@
-import BarGraph from "../BarGraph";
+import BarGraphComponent from "../BarGraph";
 import { StoreState } from "../../types";
 import { connect } from "react-redux";
 
-const mapStateToProps = ({ barGraph }: StoreState) => ({
-  barGraph
+const mapStateToProps = ({ barGraph, animate }: StoreState) => ({
+  barGraph,
+  animate
 });
 
 const BarGraphContainer = connect(
   mapStateToProps,
   null
-)(BarGraph);
+)(BarGraphComponent);
 
 export default BarGraphContainer;
