@@ -31,8 +31,8 @@ const Header = () => {
 
 const clickHandler = () => {
   Auth.signOut({ global: true })
-    .then(data => {console.log(data); localStorage.clar();})
-    .catch(err => {console.error(err); localStorage.clar();});
+    .then(data => {console.log(data); localStorage.clear();})
+    .catch(err => {console.error(err); localStorage.clear();});
 };
 
 export default Header;
