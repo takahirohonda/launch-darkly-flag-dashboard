@@ -3,16 +3,14 @@ import * as React from "react";
 interface UserSelectionProps {
   userList: string[];
   onChangeSelection?: (user: string) => void;
+  setAnimationProp?: (bool: boolean) => void;
 }
 
 // NOTE: the component is defined as below:
 // Interface Component<P = {}, S = {}> extends ComponentLifecycle<P, S> { }
 // Therefore, if we don't put { value: string }, we will get error: Property 'value' does not exist on type 'Readonly<{}>'
 
-class UserSelection extends React.Component<
-  UserSelectionProps,
-  { value: string }
-> {
+class UserSelection extends React.Component<UserSelectionProps, { value: string }> {
   constructor(props: UserSelectionProps) {
     super(props);
     this.state = { value: "default" };
@@ -42,6 +40,7 @@ class UserSelection extends React.Component<
         className="custom-select"
         value={this.state.value}
         onChange={this.handleChange}
+        onMouseEnter={()=>this.props.setAnimationProp(false)}
       >
         <option value="default">All users</option>
         {users}

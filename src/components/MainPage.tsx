@@ -23,18 +23,27 @@ class MainPage extends React.Component<MainPageProps> {
   }
 
   render() {
-    return (
-      <React.Fragment>
-        <Header />
-        <DashboardTitle />
-        <SummarySection>
-          <ScoreCardContainer />
-          <BarGraphContainer />
-        </SummarySection>
-        <TableTitle />
-        <TableContainer />
-      </React.Fragment>
-    );
+
+    if (this.props.initialState.initialData.isFetching) {
+      return (
+        <div className="preloader-background active">
+          <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+      );
+    } else {
+        return (
+        <React.Fragment>
+          <Header />
+          <DashboardTitle />
+          <SummarySection>
+            <ScoreCardContainer />
+            <BarGraphContainer />
+          </SummarySection>
+          <TableTitle />
+          <TableContainer />
+        </React.Fragment>
+      );
+    }
   }
 }
 

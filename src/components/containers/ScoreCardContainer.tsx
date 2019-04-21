@@ -2,8 +2,10 @@ import ScoreCard from "../ScoreCard";
 import { StoreState } from "../../types";
 import { connect } from "react-redux";
 
-const mapStateToProps = ({ summary }: StoreState) => ({
-  summary
+const mapStateToProps = ({ summary, animate, initialData}: StoreState) => ({
+  summary,
+  animate,
+  fetchingSuccess: initialData.fetchingSuccess
 });
 
 const ScoreCardContainer = connect(

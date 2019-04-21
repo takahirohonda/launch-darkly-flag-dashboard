@@ -4,6 +4,7 @@ export const initialState: StoreState = {
   initialData : {
     flagList: [],
     isFetching: false,
+    fetchingSuccess: false,
     isError: false
   },
   userList: [],
@@ -14,5 +15,6 @@ export const initialState: StoreState = {
     inactive: null,
     activePercentage: null
   },
-  barGraph: []
+  barGraph: [],
+  animate: false
 };

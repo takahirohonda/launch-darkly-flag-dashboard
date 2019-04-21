@@ -217,125 +217,347 @@ transform: rotate(18deg);
     background-color: #FF5733;
 }
 
+.table {
+  margin-top: 20px;
+}
 
-/* Desktop Animation */
+/* Defining React CSS Transition */
+
+/* Bar graph */
+
+.bar-grow0-enter-active {
+  animation-name: grow;
+  animation-duration: 0.6s;
+}
+.bar-grow1-enter-active {
+  animation-name: grow;
+  animation-duration: 0.8s;
+}
+.bar-grow2-enter-active {
+  animation-name: grow;
+  animation-duration: 1s;
+}
+.bar-grow3-enter-active {
+  animation-name: grow;
+  animation-duration: 1.2s;
+}
+.bar-grow4-enter-active {
+  animation-name: grow;
+  animation-duration: 1.4s;
+}
+.bar-grow5-enter-active {
+  animation-name: grow;
+  animation-duration: 1.6s;
+}
+
+.count-appear0-enter-active {
+  animation-name: appear;
+  animation-duration: 0.6s;
+}
+.count-appear1-enter-active {
+  animation-name: appear;
+  animation-duration: 0.8s;
+}
+.count-appear2-enter-active {
+  animation-name: appear;
+  animation-duration: 1s;
+}
+.count-appear3-enter-active {
+  animation-name: appear;
+  animation-duration: 1.2s;
+}
+.count-appear4-enter-active {
+  animation-name: appear;
+  animation-duration: 1.4s;
+}
+.count-appear5-enter-active {
+  animation-name: appear;
+  animation-duration: 1.6s;
+}
 
 @Keyframes grow {
-    0% {
-        opacity: 0;
-        transform: scaleY(0);
-        transform-origin: bottom center;
-    }
-    100% {
-        opacity: 1;
-        transform: scaleY(1);
-        transform-origin: bottom center;
-    }
+  0% {
+      opacity: 0;
+      transform: scaleY(0);
+      transform-origin: bottom center;
+  }
+  100% {
+      opacity: 1;
+      transform: scaleY(1);
+      transform-origin: bottom center;
+  }
 }
 
 @Keyframes appear {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+/* For Summary Numbers */
+
+.summary-count1-enter-active {
+animation-name: fadeInUp;
+animation-duration: 0.6s;
+}
+
+.summary-count2-enter-active {
+animation-name: fadeInUp;
+animation-duration: 0.8s;
+}
+
+.summary-count3-enter-active {
+animation-name: fadeInUp;
+animation-duration: 1s;
+}
+
+.pie-animation-enter-active  {
+animation-duration: 1.2s;
+animation-name: flipInY;
+}
+
+@keyframes fadeInUp {
+from {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+
+to {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+}
+
+@keyframes bounceInUp {
+from,
+60%,
+75%,
+90%,
+to {
+  -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+from {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 3000px, 0);
+  transform: translate3d(0, 3000px, 0);
+}
+
+60% {
+  opacity: 1;
+  -webkit-transform: translate3d(0, -20px, 0);
+  transform: translate3d(0, -20px, 0);
+}
+
+75% {
+  -webkit-transform: translate3d(0, 10px, 0);
+  transform: translate3d(0, 10px, 0);
+}
+
+90% {
+  -webkit-transform: translate3d(0, -5px, 0);
+  transform: translate3d(0, -5px, 0);
+}
+
+to {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+}
+@keyframes flipInY {
+  from {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+  }
+
+  to {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+/* preloader */
+.preloader-background {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #181f2f;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;  
+}
+
+.preloader-background.active {
+  display:flex;
+}
+/* Load spinner from https://loading.io/css/*/
+
+.lds-spinner {
+  color: official;
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-spinner div {
+  transform-origin: 32px 32px;
+  animation: lds-spinner 1.2s linear infinite;
+}
+.lds-spinner div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 29px;
+  width: 5px;
+  height: 14px;
+  border-radius: 20%;
+  background: #fff;
+}
+.lds-spinner div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.1s;
+}
+.lds-spinner div:nth-child(2) {
+  transform: rotate(30deg);
+  animation-delay: -1s;
+}
+.lds-spinner div:nth-child(3) {
+  transform: rotate(60deg);
+  animation-delay: -0.9s;
+}
+.lds-spinner div:nth-child(4) {
+  transform: rotate(90deg);
+  animation-delay: -0.8s;
+}
+.lds-spinner div:nth-child(5) {
+  transform: rotate(120deg);
+  animation-delay: -0.7s;
+}
+.lds-spinner div:nth-child(6) {
+  transform: rotate(150deg);
+  animation-delay: -0.6s;
+}
+.lds-spinner div:nth-child(7) {
+  transform: rotate(180deg);
+  animation-delay: -0.5s;
+}
+.lds-spinner div:nth-child(8) {
+  transform: rotate(210deg);
+  animation-delay: -0.4s;
+}
+.lds-spinner div:nth-child(9) {
+  transform: rotate(240deg);
+  animation-delay: -0.3s;
+}
+.lds-spinner div:nth-child(10) {
+  transform: rotate(270deg);
+  animation-delay: -0.2s;
+}
+.lds-spinner div:nth-child(11) {
+  transform: rotate(300deg);
+  animation-delay: -0.1s;
+}
+.lds-spinner div:nth-child(12) {
+  transform: rotate(330deg);
+  animation-delay: 0s;
+}
+@keyframes lds-spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/* Original animation css style -> moved to Css Transition*/
+
+/* @Keyframes grow {
+  0% {
+      opacity: 0;
+      transform: scaleY(0);
+      transform-origin: bottom center;
+  }
+  100% {
+      opacity: 1;
+      transform: scaleY(1);
+      transform-origin: bottom center;
+  }
+}
+
+@Keyframes appear {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
 }
 
 .grow {
-    animation-name: grow;
-    animation-duration: 1s;
-    animation-fill-mode: both;
+  animation-name: grow;
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
 .appear {
-    animation-name: appear;
-    animation-duration: 1s;
-    animation-fill-mode: both;
+animation-name: appear;
+animation-duration: 1s;
+animation-fill-mode: both;
 }
 
 .animation-delay-0 {
-    animation-delay: .4s;
+animation-delay: .4s;
 }
 
 .animation-delay-1 {
-    animation-delay: .5s;
+animation-delay: .5s;
 }
 
 .animation-delay-2 {
-    animation-delay: .6s;
+animation-delay: .6s;
 }
 
 .animation-delay-3 {
-    animation-delay: .7s;
+animation-delay: .7s;
 }
 
 .animation-delay-4 {
-    animation-delay: .8s;
+animation-delay: .8s;
 }
 
 .animation-delay-5 {
-    animation-delay: .9s;
-}
-
-.table {
-    margin-top: 20px;
-}
-
-
-/* React CSS Transition Group */
-
-.pieanimation-enter {
-    opacity: 0.01;
-}
-
-.pieanimation-enter.pieanimation-enter-active {
-    opacity: 1;
-    transition: opacity 1000ms ease-in;
-}
-
-.pieanimation-leave {
-    opacity: 0.01;
-}
-
-.pieanimation-leave.pieanimation-leave-active {
-    opacity: 1;
-    transition: opacity 1000ms ease-in;
-}
-
-
-/* 
-.pieanimation-appear {
-  opacity: 0.01;
-}
-.pieanimation-appear.pieanimation-appear-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
+animation-delay: .9s;
 } */
 
-.example-appear {
-    opacity: 0.01;
-}
-
-.example-appear.example-appear-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
-}
-
-.example-enter {
-    opacity: 0.01;
-}
-
-.example-enter.example-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
-}
-
-.example-leave {
-    opacity: 1;
-}
-
-.example-leave.example-leave-active {
-    opacity: 0.01;
-    transition: opacity 300ms ease-in;
-}

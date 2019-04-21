@@ -62,6 +62,11 @@ interface GetFilteredUserBarGraph {
   payload: FilterActionPayload;
 }
 
+interface ToggleAnimation {
+  type: C.TOGGLE_ANIMATION;
+  payload: boolean;
+}
+
 export type AppAction =
   | LoadData
   | FetchingData
@@ -73,7 +78,8 @@ export type AppAction =
   | GetAllUserSummary
   | GetFilteredUserSummary
   | GetAllUserBarGraph
-  | GetFilteredUserBarGraph;
+  | GetFilteredUserBarGraph
+  | ToggleAnimation;
 
 export const loadData = (featureFlagData: FeatureFlagData[]): LoadData => {
   return {
@@ -100,24 +106,17 @@ export const recieveError = (): RecieveError => {
   };
 };
 
-export const getUserList = (
-  featureFlagData: FeatureFlagData[]
-): GetUserList => ({
+export const getUserList = (featureFlagData: FeatureFlagData[]): GetUserList => ({
   type: C.GET_USER_LIST,
   payload: featureFlagData
 });
 
-export const loadAllUserList = (
-  featureFlagData: FeatureFlagData[]
-): LoadAllUserList => ({
+export const loadAllUserList = (featureFlagData: FeatureFlagData[]): LoadAllUserList => ({
   type: C.LOAD_ALL_USER_LIST,
   payload: featureFlagData
 });
 
-export const filteredUserList = (user: string) => (
-  dispatch: Dispatch,
-  getState: any
-) => {
+export const filteredUserList = (user: string) => (dispatch: Dispatch, getState: any) => {
   const data = {
     data: getState().initialData.flagList,
     user: user
@@ -125,41 +124,37 @@ export const filteredUserList = (user: string) => (
   dispatch(loadFilteredUserList(data));
   dispatch(getFilteredUserSummary(data));
   dispatch(getFilteredUserBarGraph(data));
+  dispatch(toggleAnimation(true));
 };
 
-export const loadFilteredUserList = (
-  data: FilterActionPayload
-): LoadFilteredUserList => ({
+export const loadFilteredUserList = (data: FilterActionPayload): LoadFilteredUserList => ({
   type: C.LOAD_FILTERED_USER_LIST,
   payload: data
 });
 
-export const getAllUserSummary = (
-  featureFlagData: FeatureFlagData[]
-): GetAllUserSummary => ({
+export const getAllUserSummary = (featureFlagData: FeatureFlagData[]): GetAllUserSummary => ({
   type: C.GET_ALL_USER_SUMMARY,
   payload: featureFlagData
 });
 
-export const getFilteredUserSummary = (
-  data: FilterActionPayload
-): GetFilteredUserSummary => ({
+export const getFilteredUserSummary = (data: FilterActionPayload): GetFilteredUserSummary => ({
   type: C.GET_FILTERED_USER_SUMMARY,
   payload: data
 });
 
-export const getAllUserBarGraph = (
-  featureFlagData: FeatureFlagData[]
-): GetAllUserBarGraph => ({
+export const getAllUserBarGraph = (featureFlagData: FeatureFlagData[]): GetAllUserBarGraph => ({
   type: C.GET_ALL_USER_BAR_GRAPH,
   payload: featureFlagData
 });
 
-export const getFilteredUserBarGraph = (
-  data: FilterActionPayload
-): GetFilteredUserBarGraph => ({
+export const getFilteredUserBarGraph = (data: FilterActionPayload): GetFilteredUserBarGraph => ({
   type: C.GET_FILTERED_USER_BAR_GRAPH,
   payload: data
+});
+
+export const toggleAnimation = (bool: boolean): ToggleAnimation => ({
+  type: C.TOGGLE_ANIMATION,
+  payload: bool
 });
 
 export const loadInitialData = () => (dispatch: Dispatch) => {
@@ -174,6 +169,7 @@ export const loadInitialData = () => (dispatch: Dispatch) => {
       dispatch(getUserList(list));
       dispatch(getAllUserSummary(list));
       dispatch(getAllUserBarGraph(list));
+      dispatch(toggleAnimation(true));
     })
     .catch(err => dispatch(recieveError()));
 };
