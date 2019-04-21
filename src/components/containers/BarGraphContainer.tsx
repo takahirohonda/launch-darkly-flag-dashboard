@@ -1,6 +1,6 @@
-import BarGraphComponent from "../BarGraph";
-import { StoreState } from "../../types";
-import { connect } from "react-redux";
+import BarGraphComponent from '../BarGraph';
+import { StoreState } from '../../types';
+import { connect } from 'react-redux';
 
 const mapStateToProps = ({ barGraph, animate }: StoreState) => ({
   barGraph,

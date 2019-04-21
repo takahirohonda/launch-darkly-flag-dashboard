@@ -1,6 +1,6 @@
-import ScoreCard from "../ScoreCard";
-import { StoreState } from "../../types";
-import { connect } from "react-redux";
+import ScoreCard from '../ScoreCard';
+import { StoreState } from '../../types';
+import { connect } from 'react-redux';
 
 const mapStateToProps = ({ summary, animate, initialData}: StoreState) => ({
   summary,

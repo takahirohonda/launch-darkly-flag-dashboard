@@ -1,4 +1,4 @@
-import { AxiosResponse, AxiosRequestConfig, AxiosPromise } from "axios";
+import { AxiosResponse, AxiosRequestConfig, AxiosPromise } from 'axios';
 
 export interface FeatureFlagData {
   status?: number;

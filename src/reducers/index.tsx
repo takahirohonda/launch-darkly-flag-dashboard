@@ -101,7 +101,6 @@ export const animate = (state: boolean = initialState.animate, action: AppAction
   return state;
 };
 
-
 export default combineReducers({
     initialData: combineReducers({
         flagList,
@@ -115,5 +114,3 @@ export default combineReducers({
     barGraph,
     animate
 });
-
-

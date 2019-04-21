@@ -1,6 +1,6 @@
-import { Items } from "./types/featureFlagDataModel";
-import { FeatureFlagData } from "../types";
-import { convertEpocToLocal, getYearMonthKey } from "./timestampFormatter";
+import { Items } from './types/featureFlagDataModel';
+import { FeatureFlagData } from '../types';
+import { convertEpocToLocal, getYearMonthKey } from './timestampFormatter';
 
 export const formatResponse = (data: Items): FeatureFlagData[] => {
   const array = data.items.map(item => {
@@ -28,31 +28,31 @@ export const formatResponse = (data: Items): FeatureFlagData[] => {
     try {
       tags = createTagString(item.tags);
     } catch {
-      tags = "NA";
+      tags = 'NA';
     }
     try {
       customProperties = JSON.stringify(item.customProperties);
     } catch {
-      customProperties = "NA";
+      customProperties = 'NA';
     }
     try {
-      createdBy = item._maintainer.firstName + " " + item._maintainer.lastName;
+      createdBy = item._maintainer.firstName + ' ' + item._maintainer.lastName;
     } catch {
-      customProperties = "NA";
+      customProperties = 'NA';
     }
     try {
       createdDate = convertEpocToLocal(item.creationDate);
       yearMonthKey = getYearMonthKey(item.creationDate);
     } catch {
-      createdDate = "NA";
-      yearMonthKey = "NA";
+      createdDate = 'NA';
+      yearMonthKey = 'NA';
     }
     try {
       lastModified = convertEpocToLocal(
         item.environments.production.lastModified
       );
     } catch {
-      lastModified = "NA";
+      lastModified = 'NA';
     }
 
     return {
@@ -70,14 +70,14 @@ export const formatResponse = (data: Items): FeatureFlagData[] => {
     };
   });
 
-  return array.sort(jsonSorter("sortKey"));
+  return array.sort(jsonSorter('sortKey'));
 };
 
 const createTagString = (input: Array<String>) => {
   if (input != null) {
-    return input.join(", ");
+    return input.join(', ');
   } else {
-    return "NA";
+    return 'NA';
   }
 };
 

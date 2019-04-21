@@ -1,15 +1,15 @@
-import axios from "axios";
-import { Items } from "./types/featureFlagDataModel";
-import { formatResponse } from "./formatResponse";
-import * as config from "../../config/config.json";
+import axios from 'axios';
+import { Items } from './types/featureFlagDataModel';
+import { formatResponse } from './formatResponse';
+import * as config from '../../config/config.json';
 
 const token = config.token;
 const headers = {
   Authorization: token,
-  "Content-Type": "application/json"
+  'Content-Type': 'application/json'
 };
 const params = {
-  method: "get",
+  method: 'get',
   url: config.apiUrl,
   headers: headers
 };

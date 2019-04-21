@@ -1,5 +1,5 @@
-import * as React from "react";
-import { BarGraph as BarGraphTypes } from "../types";
+import * as React from 'react';
+import { BarGraph as BarGraphTypes } from '../types';
 import { CSSTransition } from 'react-transition-group';
 
 interface BarGraphProps {
@@ -12,8 +12,8 @@ const BarGraph = ({ barGraph, animate }: BarGraphProps) => {
   const bars = barGraph.map((item: BarGraphTypes, index: number) => {
     const height = { height: `${item.height}%` };
     return (
-      <div className="bar-chart-area" key={index}>
-        <div className="bar-chart-title">{item.title}</div>
+      <div className='bar-chart-area' key={index}>
+        <div className='bar-chart-title'>{item.title}</div>
         <CSSTransition in={animate} timeout={duration} classNames={`bar-grow${index}`}>
         <div
           className={`bar-chart`}
@@ -31,7 +31,7 @@ const BarGraph = ({ barGraph, animate }: BarGraphProps) => {
   });
   return (
     <React.Fragment>
-      <div className="bar-chart-container">{bars}</div>
+      <div className='bar-chart-container'>{bars}</div>
     </React.Fragment>
   );
 };

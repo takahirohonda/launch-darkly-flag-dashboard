@@ -17,7 +17,7 @@ describe('Integration test for getFlagList()', () => {
   //   // console.log(formatResponse(data))
 
   //   expect(data.items.length).to.be.gte(1);
-    
+
   // })
 
   // it('should create summary data', async () => {
@@ -29,15 +29,15 @@ describe('Integration test for getFlagList()', () => {
   //   console.log(flagList)
 
   //   console.log(createSummaryData(flagList))
-    
+
   // })
 
-  it('should create bar graph data', async () => {
+  it('should create bar graph data', async() => {
     const data: Items = await getFlagList();
 
     const flagList = formatResponse(data);
 
     console.log(flagList);
-    console.log(createBarGraphData(flagList))
-  })
-})
+    console.log(createBarGraphData(flagList));
+  });
+});

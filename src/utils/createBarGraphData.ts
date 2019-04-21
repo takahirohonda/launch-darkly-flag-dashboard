@@ -1,17 +1,17 @@
-import { FeatureFlagData, BarGraph } from "../types";
+import { FeatureFlagData, BarGraph } from '../types';
 
 export const createBarGraphData = (data: FeatureFlagData[]): BarGraph[] => {
   const array = [];
   const totalFlags = data.length;
 
-  array.push(aggregateOlderData(data, 6, "Older", totalFlags));
+  array.push(aggregateOlderData(data, 6, 'Older', totalFlags));
 
   for (let i = 4; i >= 0; i--) {
     const targetYearMonthKey = getPastYearMonthKey(i);
     const flagCount = data.filter(data => data.yearMonthKey == targetYearMonthKey)
       .length;
     const barGraph = {
-      title: i == 0 ? "Current" : monthConverter(getPastMonth(i)),
+      title: i == 0 ? 'Current' : monthConverter(getPastMonth(i)),
       count: flagCount,
       height: 0
     };
@@ -64,30 +64,30 @@ const getPastMonth = (monthAgo: number): number => {
 const monthConverter = (month: number): string => {
   switch (month) {
     case 0:
-      return "January";
+      return 'January';
     case 1:
-      return "February";
+      return 'February';
     case 2:
-      return "March";
+      return 'March';
     case 3:
-      return "April";
+      return 'April';
     case 4:
-      return "May";
+      return 'May';
     case 5:
-      return "June";
+      return 'June';
     case 6:
-      return "July";
+      return 'July';
     case 7:
-      return "August";
+      return 'August';
     case 8:
-      return "September";
+      return 'September';
     case 9:
-      return "October";
+      return 'October';
     case 10:
-      return "November";
+      return 'November';
     case 11:
-      return "December";
+      return 'December';
     default:
-      return "";
+      return '';
   }
 };

@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 interface UserSelectionProps {
   userList: string[];
@@ -13,7 +13,7 @@ interface UserSelectionProps {
 class UserSelection extends React.Component<UserSelectionProps, { value: string }> {
   constructor(props: UserSelectionProps) {
     super(props);
-    this.state = { value: "default" };
+    this.state = { value: 'default' };
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -36,13 +36,13 @@ class UserSelection extends React.Component<UserSelectionProps, { value: string 
 
     return (
       <select
-        name="users"
-        className="custom-select"
+        name='users'
+        className='custom-select'
         value={this.state.value}
         onChange={this.handleChange}
         onMouseEnter={()=>this.props.setAnimationProp(false)}
       >
-        <option value="default">All users</option>
+        <option value='default'>All users</option>
         {users}
       </select>
     );

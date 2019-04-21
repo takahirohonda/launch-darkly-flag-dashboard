@@ -1,6 +1,6 @@
-import Table from "../Table";
-import { StoreState } from "../../types";
-import { connect } from "react-redux";
+import Table from '../Table';
+import { StoreState } from '../../types';
+import { connect } from 'react-redux';
 
 const mapStateToProps = ({ filteredList }: StoreState) => ({
   filteredList

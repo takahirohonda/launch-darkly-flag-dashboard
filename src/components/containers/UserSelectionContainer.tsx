@@ -1,8 +1,8 @@
-import UserSelection from "../UserSelection";
-import { StoreState } from "../../types";
-import { connect } from "react-redux";
-import { Dispatch } from "redux";
-import * as actions from "../../actions";
+import UserSelection from '../UserSelection';
+import { StoreState } from '../../types';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
+import * as actions from '../../actions';
 
 const mapStateToProps = ({ userList }: StoreState) => ({
   userList

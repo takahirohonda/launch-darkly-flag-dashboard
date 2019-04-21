@@ -1,10 +1,10 @@
-import * as C from "../constants";
-import { FeatureFlagData } from "../types";
-import { Dispatch } from "redux";
-import { getFlagList } from "../utils/getFlagList";
-import { formatResponse } from "../utils/formatResponse";
-import { Items } from "../utils/types/featureFlagDataModel";
-import { flagList } from "../reducers";
+import * as C from '../constants';
+import { FeatureFlagData } from '../types';
+import { Dispatch } from 'redux';
+import { getFlagList } from '../utils/getFlagList';
+import { formatResponse } from '../utils/formatResponse';
+import { Items } from '../utils/types/featureFlagDataModel';
+import { flagList } from '../reducers';
 
 interface FilterActionPayload {
   data: FeatureFlagData[];

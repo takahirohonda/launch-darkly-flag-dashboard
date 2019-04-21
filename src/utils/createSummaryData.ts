@@ -1,4 +1,4 @@
-import { FeatureFlagData, Summary } from "../types";
+import { FeatureFlagData, Summary } from '../types';
 
 export const createSummaryData = (data: FeatureFlagData[]): Summary => {
   const totalFlag = data.length;

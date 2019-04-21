@@ -1,7 +1,7 @@
-import * as React from "react";
-import { Authenticator, SignIn } from "aws-amplify-react";
-import config from "../config/aws-exports";
-import App from "./App";
+import * as React from 'react';
+import { Authenticator, SignIn } from 'aws-amplify-react';
+import config from '../config/aws-exports';
+import App from './App';
 
 class AppWithAuth extends React.Component {
   render() {

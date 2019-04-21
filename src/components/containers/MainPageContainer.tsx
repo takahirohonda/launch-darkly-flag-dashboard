@@ -1,8 +1,8 @@
-import MainPage from "../MainPage";
-import { StoreState, FeatureFlagData } from "../../types";
-import * as actions from "../../actions";
-import { connect } from "react-redux";
-import { Dispatch } from "redux";
+import MainPage from '../MainPage';
+import { StoreState, FeatureFlagData } from '../../types';
+import * as actions from '../../actions';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
 const mapStateToProps = (initialState: StoreState) => ({
   initialState
